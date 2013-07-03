@@ -4,14 +4,14 @@ see http://docs.seleniumhq.org/projects/ide/
 
 Already implemented:
 
-- [x] logout
-- [x] login failure warning
-- [x] login with admin user
-- [x] create test user with cryptic password
-- [x] check and close welcome dialog
-- [x] file upload
-- [x] multiple file upload
-- [x] file upload autorename
+- logout
+- login failure warning
+- login with admin user
+- create test user with cryptic password
+- check and close welcome dialog
+- file upload
+- multiple file upload
+- file upload autorename
 
 I'll try to add whatever we can automate from https://github.com/owncloud/core/wiki/Testplan with priority for file related actions and sharing. Any help is welcome.
 
