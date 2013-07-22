@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/core" />
+<title>Files - New File</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Files - New File</td></tr>
+</thead><tbody>
+<!--Given I am in the files app-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php/apps/files</td>
+	<td></td>
+</tr>
+<!--When I click New-->
+<tr>
+	<td>click</td>
+	<td>css=#new a</td>
+	<td></td>
+</tr>
+<!--And I click file-->
+<tr>
+	<td>click</td>
+	<td>css=#new li[data-type=&quot;file&quot;] p</td>
+	<td></td>
+</tr>
+<!--And I enter a name with various special characters-->
+<tr>
+	<td>type</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>test file with äÖß€$@!§$%&amp;()=+-,.;'#+~–…²³¼½¬{[]}.txt</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>\13</td>
+</tr>
+<!--Then I should see the filen in the filelist-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#fileList tr[data-file=&quot;test file with äÖß€$@!§$%&amp;()=+-,.;'#+~–…²³¼½¬{[]}.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--When I refresh the page-->
+<tr>
+	<td>refresh</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Then I should see the file in the filelist-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#fileList tr[data-file=&quot;test file with äÖß€$@!§$%&amp;()=+-,.;'#+~–…²³¼½¬{[]}.txt&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
