@@ -11,36 +11,43 @@
 <thead>
 <tr><td rowspan="1" colspan="3">File upload</td></tr>
 </thead><tbody>
+<!--Given I am in the files app-->
 <tr>
 	<td>open</td>
 	<td>/core/index.php/apps/files</td>
 	<td></td>
 </tr>
+<!--When I upload a file-->
 <tr>
 	<td>type</td>
 	<td>css=#file_upload_start</td>
 	<td>${dataFolder}/${fileTXT}</td>
 </tr>
+<!--Then I should see a progress bar-->
 <tr>
 	<td>waitForVisible</td>
 	<td>css=#uploadprogressbar</td>
 	<td></td>
 </tr>
+<!--And I should see a new row in the file list-->
 <tr>
 	<td>assertElementPresent</td>
 	<td>css=#fileList tr[data-file=&quot;${fileTXT}&quot;]</td>
 	<td></td>
 </tr>
+<!--And the progressbar should vanish-->
 <tr>
 	<td>waitForNotVisible</td>
 	<td>css=#uploadprogressbar</td>
 	<td></td>
 </tr>
+<!--When I refresh the page-->
 <tr>
-	<td>open</td>
-	<td>/core/index.php/apps/files</td>
+	<td>refreshAndWait</td>
+	<td></td>
 	<td></td>
 </tr>
+<!--Then I should still see the file in the file list-->
 <tr>
 	<td>assertElementPresent</td>
 	<td>css=#fileList tr[data-file=&quot;${fileTXT}&quot;]</td>

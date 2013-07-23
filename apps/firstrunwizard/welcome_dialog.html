@@ -11,37 +11,31 @@
 <thead>
 <tr><td rowspan="1" colspan="3">Welcome Dialog</td></tr>
 </thead><tbody>
-<!--given the first run wizard is visible-->
+<!--Given the first run wizard is visible-->
 <tr>
 	<td>waitForElementPresent</td>
 	<td>css=#firstrunwizard</td>
 	<td></td>
 </tr>
-<!--when I close the wizard-->
+<!--When I close the wizard-->
 <tr>
 	<td>click</td>
 	<td>css=#closeWizard</td>
 	<td></td>
 </tr>
-<!--then the first run wizard should be hidden-->
-<tr>
-	<td>waitForNotVisible</td>
-	<td>css=#firstrunwizard</td>
-	<td></td>
-</tr>
-<!--and the test has to wait for the ajax call that disables the first run wizard-->
+<!--//the test has to wait for the ajax call that disables the first run wizard-->
 <tr>
 	<td>pause</td>
 	<td>3000</td>
 	<td></td>
 </tr>
-<!--when I refresh the page-->
+<!--When I refresh the page-->
 <tr>
 	<td>refreshAndWait</td>
 	<td></td>
 	<td></td>
 </tr>
-<!--the first run wizard should no longer popup-->
+<!--Then the first run wizard should no longer popup-->
 <tr>
 	<td>pause</td>
 	<td>3000</td>

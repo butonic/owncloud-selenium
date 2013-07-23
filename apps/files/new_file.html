@@ -41,7 +41,7 @@
 	<td>css=li &gt; form &gt; input</td>
 	<td>\13</td>
 </tr>
-<!--Then I should see the filen in the filelist-->
+<!--Then I should see the file in the filelist-->
 <tr>
 	<td>waitForElementPresent</td>
 	<td>css=#fileList tr[data-file=&quot;test file with äÖß€$@!§$%&amp;()=+-,.;'#+~–…²³¼½¬{[]}.txt&quot;]</td>
@@ -49,11 +49,11 @@
 </tr>
 <!--When I refresh the page-->
 <tr>
-	<td>refresh</td>
+	<td>refreshAndWait</td>
 	<td></td>
 	<td></td>
 </tr>
-<!--Then I should see the file in the filelist-->
+<!--Then I should still see the file in the filelist-->
 <tr>
 	<td>assertElementPresent</td>
 	<td>css=#fileList tr[data-file=&quot;test file with äÖß€$@!§$%&amp;()=+-,.;'#+~–…²³¼½¬{[]}.txt&quot;]</td>

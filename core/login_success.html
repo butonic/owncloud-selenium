@@ -11,16 +11,19 @@
 <thead>
 <tr><td rowspan="1" colspan="3">Login success</td></tr>
 </thead><tbody>
+<!--Given I am logged out-->
 <tr>
 	<td>open</td>
 	<td>/core/index.php?logout=true</td>
 	<td></td>
 </tr>
+<!--And I see the login-->
 <tr>
 	<td>assertVisible</td>
 	<td>css=#login</td>
 	<td></td>
 </tr>
+<!--When I enter a valid user-->
 <tr>
 	<td>click</td>
 	<td>id=user</td>
@@ -29,8 +32,9 @@
 <tr>
 	<td>type</td>
 	<td>id=user</td>
-	<td>admin</td>
+	<td>${admin_user}</td>
 </tr>
+<!--And I enter a valid password-->
 <tr>
 	<td>click</td>
 	<td>id=password</td>
@@ -39,17 +43,19 @@
 <tr>
 	<td>type</td>
 	<td>id=password</td>
-	<td>admin</td>
+	<td>${admin_password}</td>
 </tr>
+<!--And I click the login button-->
 <tr>
 	<td>clickAndWait</td>
 	<td>id=submit</td>
 	<td></td>
 </tr>
+<!--Then I should be logged in as the user-->
 <tr>
-	<td>assertVisible</td>
-	<td>css=#filestable</td>
-	<td></td>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${admin_user}</td>
 </tr>
 </tbody></table>
 </body>

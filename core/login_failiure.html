@@ -11,16 +11,19 @@
 <thead>
 <tr><td rowspan="1" colspan="3">Login success</td></tr>
 </thead><tbody>
+<!--Given I am logged out-->
 <tr>
 	<td>open</td>
 	<td>/core/index.php?logout=true</td>
 	<td></td>
 </tr>
+<!--And I see the login-->
 <tr>
 	<td>assertVisible</td>
 	<td>css=#login</td>
 	<td></td>
 </tr>
+<!--When I enter a non existant user-->
 <tr>
 	<td>click</td>
 	<td>id=user</td>
@@ -31,6 +34,7 @@
 	<td>id=user</td>
 	<td>nonexistant</td>
 </tr>
+<!--And I enter a wrong password-->
 <tr>
 	<td>click</td>
 	<td>id=password</td>
@@ -41,11 +45,13 @@
 	<td>id=password</td>
 	<td>wrong</td>
 </tr>
+<!--And I click the login button-->
 <tr>
 	<td>clickAndWait</td>
 	<td>id=submit</td>
 	<td></td>
 </tr>
+<!--Then I should see an error message-->
 <tr>
 	<td>assertVisible</td>
 	<td>css=#login .warning</td>

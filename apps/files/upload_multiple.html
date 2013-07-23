@@ -11,12 +11,14 @@
 <thead>
 <tr><td rowspan="1" colspan="3">File upload multiple</td></tr>
 </thead><tbody>
+<!--Given I am in the files app-->
 <tr>
 	<td>open</td>
 	<td>/core/index.php/apps/files</td>
 	<td></td>
 </tr>
-<!--add multiple files to the fileupload-->
+<!--When I add multiple files to the fileupload-->
+<!--// this is somewhat faked, but the fileupload works this way and queues the files anyway-->
 <tr>
 	<td>type</td>
 	<td>css=#file_upload_start</td>
@@ -27,11 +29,13 @@
 	<td>css=#file_upload_start</td>
 	<td>${dataFolder}/${fileJPG2}</td>
 </tr>
+<!--Then I should see a progress bar-->
 <tr>
 	<td>waitForVisible</td>
 	<td>css=#uploadprogressbar</td>
 	<td></td>
 </tr>
+<!--And I should see two new rows in the file list-->
 <tr>
 	<td>assertElementPresent</td>
 	<td>css=#fileList tr[data-file=&quot;${fileJPG1}&quot;]</td>
@@ -42,16 +46,19 @@
 	<td>css=#fileList tr[data-file=&quot;${fileJPG2}&quot;]</td>
 	<td></td>
 </tr>
+<!--And the progressbar should vanish-->
 <tr>
 	<td>waitForNotVisible</td>
 	<td>css=#uploadprogressbar</td>
 	<td></td>
 </tr>
+<!--When I refresh the page-->
 <tr>
-	<td>open</td>
-	<td>/core/index.php/apps/files</td>
+	<td>refreshAndWait</td>
+	<td></td>
 	<td></td>
 </tr>
+<!--Then I should still see the two files in the file list-->
 <tr>
 	<td>assertElementPresent</td>
 	<td>css=#fileList tr[data-file=&quot;${fileJPG1}&quot;]</td>

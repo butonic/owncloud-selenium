@@ -11,11 +11,7 @@
 <thead>
 <tr><td rowspan="1" colspan="3">Create user</td></tr>
 </thead><tbody>
-<tr>
-	<td>click</td>
-	<td>id=expandDisplayName</td>
-	<td></td>
-</tr>
+<!--//store test user-->
 <tr>
 	<td>store</td>
 	<td>javascript{'seleniumTest-' + new Date().getTime() + '@test.com'}</td>
@@ -26,11 +22,32 @@
 	<td>aäßOÖ3*@#&quot;§$%&amp;/()=?~_-.:,;+ç</td>
 	<td>password</td>
 </tr>
+<!--Given I am logged in as an admin-->
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Benutzer</td>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${admin_user}</td>
+</tr>
+<!--When I open the user menu-->
+<tr>
+	<td>click</td>
+	<td>id=expandDisplayName</td>
 	<td></td>
 </tr>
+<!--And click the users menu item-->
+<!--//TODO add id to menu items-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#settings a[href*=&quot;/settings/user&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see a new user form-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#newuser</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
 <tr>
 	<td>click</td>
 	<td>id=newusername</td>
@@ -41,6 +58,7 @@
 	<td>id=newusername</td>
 	<td>${username}</td>
 </tr>
+<!--And I enter a new user password-->
 <tr>
 	<td>click</td>
 	<td>id=newuserpassword</td>
@@ -51,26 +69,31 @@
 	<td>id=newuserpassword</td>
 	<td>${password}</td>
 </tr>
+<!--And I click create-->
 <tr>
 	<td>click</td>
 	<td>css=input[type=&quot;submit&quot;]</td>
 	<td></td>
 </tr>
+<!--Then I should see the new user in the list of users-->
 <tr>
 	<td>assertVisible</td>
 	<td>css=td.name</td>
 	<td>${username}</td>
 </tr>
+<!--When I logout-->
 <tr>
 	<td>open</td>
 	<td>/core/index.php?logout=true</td>
 	<td></td>
 </tr>
+<!--And I see the login-->
 <tr>
 	<td>assertVisible</td>
 	<td>css=#login</td>
 	<td></td>
 </tr>
+<!--And I enter the user name-->
 <tr>
 	<td>click</td>
 	<td>id=user</td>
@@ -81,6 +104,7 @@
 	<td>id=user</td>
 	<td>${username}</td>
 </tr>
+<!--And I enter the user password-->
 <tr>
 	<td>click</td>
 	<td>id=password</td>
@@ -91,28 +115,22 @@
 	<td>id=password</td>
 	<td>${password}</td>
 </tr>
+<!--And I click the login button-->
 <tr>
 	<td>clickAndWait</td>
 	<td>id=submit</td>
 	<td></td>
 </tr>
-<!--and the test user should be logged in-->
+<!--Then the test user should be logged in-->
 <tr>
 	<td>waitForText</td>
 	<td>css=#header #expandDisplayName</td>
 	<td>${username}</td>
 </tr>
-<!--and the filecache might be updated (not checked)-->
-<!--and an empty file list should be visible-->
+<!--And an empty file list should be visible-->
 <tr>
 	<td>waitForElementPresent</td>
 	<td>css=#content #emptyfolder</td>
-	<td></td>
-</tr>
-<!--and the page should reload automatically-->
-<tr>
-	<td>waitForPageToLoad</td>
-	<td></td>
 	<td></td>
 </tr>
 </tbody></table>
