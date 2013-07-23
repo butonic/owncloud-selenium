@@ -15,12 +15,17 @@
 <tr>
 	<td>store</td>
 	<td>javascript{'seleniumTest-' + new Date().getTime() + '@test.com'}</td>
-	<td>username</td>
+	<td>test_user</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>password</td>
+	<td>test_password_plain</td>
 </tr>
 <tr>
 	<td>store</td>
 	<td>aäßOÖ3*@#&quot;§$%&amp;/()=?~_-.:,;+ç</td>
-	<td>password</td>
+	<td>test_password_utf8</td>
 </tr>
 <!--Given I am logged in as an admin-->
 <tr>
@@ -56,7 +61,7 @@
 <tr>
 	<td>type</td>
 	<td>id=newusername</td>
-	<td>${username}</td>
+	<td>${test_user}</td>
 </tr>
 <!--And I enter a new user password-->
 <tr>
@@ -67,7 +72,7 @@
 <tr>
 	<td>type</td>
 	<td>id=newuserpassword</td>
-	<td>${password}</td>
+	<td>${test_password_plain}</td>
 </tr>
 <!--And I click create-->
 <tr>
@@ -79,7 +84,7 @@
 <tr>
 	<td>assertVisible</td>
 	<td>css=td.name</td>
-	<td>${username}</td>
+	<td>${test_user}</td>
 </tr>
 <!--When I logout-->
 <tr>
@@ -102,7 +107,7 @@
 <tr>
 	<td>type</td>
 	<td>id=user</td>
-	<td>${username}</td>
+	<td>${test_user}</td>
 </tr>
 <!--And I enter the user password-->
 <tr>
@@ -113,7 +118,7 @@
 <tr>
 	<td>type</td>
 	<td>id=password</td>
-	<td>${password}</td>
+	<td>${test_password_plain}</td>
 </tr>
 <!--And I click the login button-->
 <tr>
@@ -125,7 +130,7 @@
 <tr>
 	<td>waitForText</td>
 	<td>css=#header #expandDisplayName</td>
-	<td>${username}</td>
+	<td>${test_user}</td>
 </tr>
 <!--And an empty file list should be visible-->
 <tr>
