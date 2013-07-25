@@ -43,7 +43,7 @@
 </tr>
 <!--Then I should see the file in the filelist-->
 <tr>
-	<td>waitForElementPresent</td>
+	<td>waitForVisible</td>
 	<td>css=#fileList tr[data-file=&quot;rename me ${allowed_utf8_filename_chars}.txt&quot;]</td>
 	<td></td>
 </tr>
@@ -85,7 +85,7 @@
 </tr>
 <!--Then I should still see the old file in the filelist-->
 <tr>
-	<td>assertElementPresent</td>
+	<td>waitForVisible</td>
 	<td>css=#fileList tr[data-file=&quot;rename me ${allowed_utf8_filename_chars}.txt&quot;]</td>
 	<td></td>
 </tr>
@@ -103,7 +103,7 @@
 </tr>
 <!--Then I should see the file in the filelist-->
 <tr>
-	<td>assertElementPresent</td>
+	<td>waitForVisible</td>
 	<td>css=#fileList tr[data-file=&quot;renamed ${allowed_utf8_filename_chars}.txt&quot;]</td>
 	<td></td>
 </tr>
@@ -115,11 +115,10 @@
 </tr>
 <!--Then I should still see the file in the filelist-->
 <tr>
-	<td>assertElementPresent</td>
+	<td>waitForVisible</td>
 	<td>css=#fileList tr[data-file=&quot;renamed ${allowed_utf8_filename_chars}.txt&quot;]</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
