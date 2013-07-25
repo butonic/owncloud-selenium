@@ -82,8 +82,8 @@
 </tr>
 <!--Then I should see the new user in the list of users-->
 <tr>
-	<td>assertVisible</td>
-	<td>css=td.name</td>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${test_user}&quot;]</td>
 	<td>${test_user}</td>
 </tr>
 <!--When I logout-->
