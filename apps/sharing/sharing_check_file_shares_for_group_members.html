@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/core" />
+<title>Sharing - check file shares for group members</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Sharing - check file shares for group members</td></tr>
+</thead><tbody>
+<!--//check A2 can read but not write or reshare-->
+<!--Given I am logged out-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php?logout=true</td>
+	<td></td>
+</tr>
+<!--And I see the login-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#body-login</td>
+	<td></td>
+</tr>
+<!--When I enter a valid user-->
+<tr>
+	<td>type</td>
+	<td>id=user</td>
+	<td>${sharing_userA2}</td>
+</tr>
+<!--And I enter a valid password-->
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click the login button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<!--Then I should be logged in as the user-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${sharing_userA2}</td>
+</tr>
+<!--And I should see the Shared folder-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;]</td>
+	<td></td>
+</tr>
+<!--When I navigate to that folder-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;] a</td>
+	<td></td>
+</tr>
+<!--Then I shold see the shared file-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--//TODO check not updatable-->
+<!--When I hover over the file-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the file actions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions</td>
+	<td></td>
+</tr>
+<!--When I click the share action-->
+<tr>
+	<td>click</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions a[data-action=&quot;Share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then sharing should be disabled-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#dropdown #shareWith[disabled=&quot;disabled&quot;]</td>
+	<td></td>
+</tr>
+<!--//check B1 can read but not write or reshare-->
+<!--Given I am logged out-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php?logout=true</td>
+	<td></td>
+</tr>
+<!--And I see the login-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#body-login</td>
+	<td></td>
+</tr>
+<!--When I enter a valid user-->
+<tr>
+	<td>type</td>
+	<td>id=user</td>
+	<td>${sharing_userB1}</td>
+</tr>
+<!--And I enter a valid password-->
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click the login button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<!--Then I should be logged in as the user-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${sharing_userB1}</td>
+</tr>
+<!--And I should see the Shared folder-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;]</td>
+	<td></td>
+</tr>
+<!--When I navigate to that folder-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;] a</td>
+	<td></td>
+</tr>
+<!--Then I shold see the shared file-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--//TODO check not updatable-->
+<!--When I hover over the file-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the file actions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions</td>
+	<td></td>
+</tr>
+<!--When I click the share action-->
+<tr>
+	<td>click</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions a[data-action=&quot;Share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then sharing should be disabled-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#dropdown #shareWith[disabled=&quot;disabled&quot;]</td>
+	<td></td>
+</tr>
+<!--//check C1 can read and write but not reshare-->
+<!--Given I am logged out-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php?logout=true</td>
+	<td></td>
+</tr>
+<!--And I see the login-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#body-login</td>
+	<td></td>
+</tr>
+<!--When I enter a valid user-->
+<tr>
+	<td>type</td>
+	<td>id=user</td>
+	<td>${sharing_userC1}</td>
+</tr>
+<!--And I enter a valid password-->
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click the login button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<!--Then I should be logged in as the user-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${sharing_userC1}</td>
+</tr>
+<!--And I should see the Shared folder-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;]</td>
+	<td></td>
+</tr>
+<!--When I navigate to that folder-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;] a</td>
+	<td></td>
+</tr>
+<!--Then I shold see the shared file-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--//TODO check updatable-->
+<!--When I hover over the file-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the file actions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions</td>
+	<td></td>
+</tr>
+<!--When I click the share action-->
+<tr>
+	<td>click</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions a[data-action=&quot;Share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then sharing should be disabled-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#dropdown #shareWith[disabled=&quot;disabled&quot;]</td>
+	<td></td>
+</tr>
+<!--//check D1 can read, write and reshare-->
+<!--Given I am logged out-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php?logout=true</td>
+	<td></td>
+</tr>
+<!--And I see the login-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#body-login</td>
+	<td></td>
+</tr>
+<!--When I enter a valid user-->
+<tr>
+	<td>type</td>
+	<td>id=user</td>
+	<td>${sharing_userD1}</td>
+</tr>
+<!--And I enter a valid password-->
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click the login button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<!--Then I should be logged in as the user-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${sharing_userD1}</td>
+</tr>
+<!--And I should see the Shared folder-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;]</td>
+	<td></td>
+</tr>
+<!--When I navigate to that folder-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#fileList tr[data-file=&quot;Shared&quot;] a</td>
+	<td></td>
+</tr>
+<!--Then I shold see the shared file-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--//TODO check updatable-->
+<!--When I hover over the file-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the file actions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions</td>
+	<td></td>
+</tr>
+<!--When I click the share action-->
+<tr>
+	<td>click</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions a[data-action=&quot;Share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then sharing should be enabled-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#dropdown #shareWith.ui-autocomplete-input</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

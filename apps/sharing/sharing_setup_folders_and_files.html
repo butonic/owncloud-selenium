@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/core" />
+<title>Sharing - setup folders and files</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Sharing - setup folders and files</td></tr>
+</thead><tbody>
+<!--Given I am in the files app-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php/apps/files</td>
+	<td></td>
+</tr>
+<!--//Add a file and a folder-->
+<!--When I click New-->
+<tr>
+	<td>click</td>
+	<td>css=#new a</td>
+	<td></td>
+</tr>
+<!--And I click file-->
+<tr>
+	<td>click</td>
+	<td>css=#new li[data-type=&quot;file&quot;] p</td>
+	<td></td>
+</tr>
+<!--And I enter a name with various special characters-->
+<tr>
+	<td>type</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>sharing file1.txt</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>\13</td>
+</tr>
+<!--Then I should see the file in the filelist-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click new-->
+<tr>
+	<td>click</td>
+	<td>css=#new a</td>
+	<td></td>
+</tr>
+<!--And I click folder-->
+<tr>
+	<td>click</td>
+	<td>css=#new li[data-type=&quot;folder&quot;] p</td>
+	<td></td>
+</tr>
+<!--And I enter a name with various special characters-->
+<tr>
+	<td>type</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>sharing folder ${sharing_test_timestamp}</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>\13</td>
+</tr>
+<!--Then I should see the folder in the filelist -->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing folder ${sharing_test_timestamp}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I navigate to that folder-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#fileList tr[data-file=&quot;sharing folder ${sharing_test_timestamp}&quot;] a</td>
+	<td></td>
+</tr>
+<!--Then I shold see an empty folder-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#emptyfolder</td>
+	<td></td>
+</tr>
+<!--//Add two files-->
+<!--When I click New-->
+<tr>
+	<td>click</td>
+	<td>css=#new a</td>
+	<td></td>
+</tr>
+<!--And I click file-->
+<tr>
+	<td>click</td>
+	<td>css=#new li[data-type=&quot;file&quot;] p</td>
+	<td></td>
+</tr>
+<!--And I enter a name with various special characters-->
+<tr>
+	<td>type</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>file1.txt</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>\13</td>
+</tr>
+<!--Then I should see the file in the filelist-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click New-->
+<tr>
+	<td>click</td>
+	<td>css=#new a</td>
+	<td></td>
+</tr>
+<!--And I click file-->
+<tr>
+	<td>click</td>
+	<td>css=#new li[data-type=&quot;file&quot;] p</td>
+	<td></td>
+</tr>
+<!--And I enter a name with various special characters-->
+<tr>
+	<td>type</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>file2.txt</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=li &gt; form &gt; input</td>
+	<td>\13</td>
+</tr>
+<!--Then I should see the file in the filelist-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;file2.txt&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

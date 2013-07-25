@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/core" />
+<title>Create user</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Create user</td></tr>
+</thead><tbody>
+<!--//store names for sharing-->
+<tr>
+	<td>store</td>
+	<td>javascript{new Date().getTime()}</td>
+	<td>sharing_test_timestamp</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserA1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userA1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserA2-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userA2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserA3-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userA3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserA4-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userA4</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserB1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userB1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserB2-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userB2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserB3-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userB3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserB4-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userB4</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserC1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userC1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserC2-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userC2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserC3-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userC3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserC4-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userC4</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserD1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userD1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserD2-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userD2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserD3-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userD3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserD4-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userD4</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserE1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userE1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserF1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userF1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserG1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userG1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingUserH1-${sharing_test_timestamp}@test.com</td>
+	<td>sharing_userH1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingGroupA-${sharing_test_timestamp}</td>
+	<td>sharing_groupA</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingGroupB-${sharing_test_timestamp}</td>
+	<td>sharing_groupB</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingGroupC-${sharing_test_timestamp}</td>
+	<td>sharing_groupC</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>seleniumTest-sharingGroupD-${sharing_test_timestamp}</td>
+	<td>sharing_groupD</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>sharing_user_password</td>
+	<td>share</td>
+</tr>
+<!--Given I am logged in as an admin-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${admin_user}</td>
+</tr>
+<!--When I open the user menu-->
+<tr>
+	<td>click</td>
+	<td>id=expandDisplayName</td>
+	<td></td>
+</tr>
+<!--And click the users menu item-->
+<!--//TODO add id to menu items-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#settings a[href*=&quot;/settings/user&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see a new user form-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#newuser</td>
+	<td></td>
+</tr>
+<!--Group A-->
+<!--When I click the 'Groups' button-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; div.button</td>
+	<td></td>
+</tr>
+<!--And I click the 'Add Group' item-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator</td>
+	<td></td>
+</tr>
+<!--And I enter the group name-->
+<tr>
+	<td>type</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>${sharing_groupA}</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>\13</td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userA1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userA1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userA2}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userA2}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userA3}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userA3}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userA4}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userA4}&quot;]</td>
+	<td></td>
+</tr>
+<!--Group B-->
+<!--When I click the 'Groups' button-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; div.button</td>
+	<td></td>
+</tr>
+<!--And I unselect the checked group (by clicking it to trigger js)-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li &gt; input:checked</td>
+	<td></td>
+</tr>
+<!--And I click the 'Add Group' item-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator</td>
+	<td></td>
+</tr>
+<!--And I enter the group name-->
+<tr>
+	<td>type</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>${sharing_groupB}</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>\13</td>
+</tr>
+<!--And I click to trigger saving changes to the group (technical)-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userB1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userB1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userB2}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userB2}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userB3}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userB3}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userB4}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userB4}&quot;]</td>
+	<td></td>
+</tr>
+<!--Group C-->
+<!--When I click the 'Groups' button-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; div.button</td>
+	<td></td>
+</tr>
+<!--And I unselect the checked group (by clicking it to trigger js)-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li &gt; input:checked</td>
+	<td></td>
+</tr>
+<!--And I click the 'Add Group' item-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator</td>
+	<td></td>
+</tr>
+<!--And I enter the group name-->
+<tr>
+	<td>type</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>${sharing_groupC}</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>\13</td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userC1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userC1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userC2}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userC2}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userC3}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userC3}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userC4}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userC4}&quot;]</td>
+	<td></td>
+</tr>
+<!--Group D-->
+<!--When I click the 'Groups' button-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; div.button</td>
+	<td></td>
+</tr>
+<!--And I unselect the checked group (by clicking it to trigger js)-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li &gt; input:checked</td>
+	<td></td>
+</tr>
+<!--And I click the 'Add Group' item-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator</td>
+	<td></td>
+</tr>
+<!--And I enter the group name-->
+<tr>
+	<td>type</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>${sharing_groupD}</td>
+</tr>
+<!--And I press enter-->
+<tr>
+	<td>keyPress</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li.creator input</td>
+	<td>\13</td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userD1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userD1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userD2}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userD2}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userD3}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userD3}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userD4}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userD4}&quot;]</td>
+	<td></td>
+</tr>
+<!--Individual Users-->
+<!--When I click the 'Groups' button-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; div.button</td>
+	<td></td>
+</tr>
+<!--And I unselect the checked group (by clicking it to trigger js)-->
+<tr>
+	<td>click</td>
+	<td>css=#newuser &gt; span &gt; ul &gt; li &gt; input:checked</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userE1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userE1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userF1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userF1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userG1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userG1}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I enter a new user name-->
+<tr>
+	<td>click</td>
+	<td>id=newusername</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newusername</td>
+	<td>${sharing_userH1}</td>
+</tr>
+<!--And I enter a new user password-->
+<tr>
+	<td>click</td>
+	<td>id=newuserpassword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newuserpassword</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click create-->
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the new user in the list of users-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=tr[data-uid=&quot;${sharing_userH1}&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

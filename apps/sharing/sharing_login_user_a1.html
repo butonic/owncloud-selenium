@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/core" />
+<title>Sharing - login with sharing user A1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Sharing - login with sharing user A1</td></tr>
+</thead><tbody>
+<!--Given I am logged out-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php?logout=true</td>
+	<td></td>
+</tr>
+<!--And I see the login-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#body-login</td>
+	<td></td>
+</tr>
+<!--When I enter a valid user-->
+<tr>
+	<td>click</td>
+	<td>id=user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user</td>
+	<td>${sharing_userA1}</td>
+</tr>
+<!--And I enter a valid password-->
+<tr>
+	<td>click</td>
+	<td>id=password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>${sharing_user_password}</td>
+</tr>
+<!--And I click the login button-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submit</td>
+	<td></td>
+</tr>
+<!--Then I should be logged in as the user-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#header #expandDisplayName</td>
+	<td>${sharing_userA1}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

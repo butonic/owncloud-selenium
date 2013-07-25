@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/core" />
+<title>Sharing - share file</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Sharing - share file</td></tr>
+</thead><tbody>
+<!--Given I am in the files app-->
+<tr>
+	<td>open</td>
+	<td>/core/index.php/apps/files</td>
+	<td></td>
+</tr>
+<!--When I hover over the file-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should see the file actions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions</td>
+	<td></td>
+</tr>
+<!--When I click the share action-->
+<tr>
+	<td>click</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions a[data-action=&quot;Share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should be able to setup the share-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWith</td>
+	<td></td>
+</tr>
+<!--// share RO with groupA-->
+<!--When I start typing the name-->
+<tr>
+	<td>type</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupA}</td>
+</tr>
+<!--//requires type & type keys, see selenium documentation on typeKeys-->
+<tr>
+	<td>typeKeys</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupA}</td>
+</tr>
+<!--Then I should see a list of users and groups-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--//name is made unique by timestamp, hope we hit the right entry-->
+<tr>
+	<td>click</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--Then the group should be in the shared with list-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I hover over the group-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the tiny dropdown arrow-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;] .showCruds</td>
+	<td></td>
+</tr>
+<!--Then I should see the permissions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;] .cruds</td>
+	<td></td>
+</tr>
+<!--And the user should be allowed to reshare-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--When I remove the sharing permission-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then the user should not be allowed to reshare-->
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupA}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--// share RO with groupB-->
+<!--When I start typing the name-->
+<tr>
+	<td>type</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupB}</td>
+</tr>
+<!--//requires type & type keys, see selenium documentation on typeKeys-->
+<tr>
+	<td>typeKeys</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupB}</td>
+</tr>
+<!--Then I should see a list of users and groups-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--//name is made unique by timestamp, hope we hit the right entry-->
+<tr>
+	<td>click</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--Then the group should be in the shared with list-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I hover over the group-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the tiny dropdown arrow-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;] .showCruds</td>
+	<td></td>
+</tr>
+<!--Then I should see the permissions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;] .cruds</td>
+	<td></td>
+</tr>
+<!--And the user should be allowed to reshare-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--When I remove the sharing permission-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then the user should not be allowed to reshare-->
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupB}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--// share RW with groupC-->
+<!--When I start typing the name-->
+<tr>
+	<td>type</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupC}</td>
+</tr>
+<!--//requires type & type keys, see selenium documentation on typeKeys-->
+<tr>
+	<td>typeKeys</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupC}</td>
+</tr>
+<!--Then I should see a list of users and groups-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--//name is made unique by timestamp, hope we hit the right entry-->
+<tr>
+	<td>click</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--Then the group should be in the shared with list-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I hover over the group-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the tiny dropdown arrow-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .showCruds</td>
+	<td></td>
+</tr>
+<!--Then I should see the permissions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds</td>
+	<td></td>
+</tr>
+<!--And the user should be allowed to reshare-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--When I remove the sharing permission-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then the user should not be allowed to reshare-->
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the can edit checkbox-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] input.permissions[name=&quot;edit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then the user should be allowed to edit-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds input[name=&quot;update&quot;]</td>
+	<td></td>
+</tr>
+<!--Meaning that the user should be allowed to update-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds input[name=&quot;update&quot;]</td>
+	<td></td>
+</tr>
+<!--And the user should be allowed to delete-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupC}&quot;] .cruds input[name=&quot;delete&quot;]</td>
+	<td></td>
+</tr>
+<!--// share RWS with groupD-->
+<!--When I start typing the name-->
+<tr>
+	<td>type</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupD}</td>
+</tr>
+<!--//requires type & type keys, see selenium documentation on typeKeys-->
+<tr>
+	<td>typeKeys</td>
+	<td>css=#dropdown #shareWith</td>
+	<td>${sharing_groupD}</td>
+</tr>
+<!--Then I should see a list of users and groups-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--//name is made unique by timestamp, hope we hit the right entry-->
+<tr>
+	<td>click</td>
+	<td>css=ul.ui-menu &gt; li &gt; a</td>
+	<td></td>
+</tr>
+<!--Then the group should be in the shared with list-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I hover over the group-->
+<tr>
+	<td>mouseOver</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the tiny dropdown arrow-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] .showCruds</td>
+	<td></td>
+</tr>
+<!--Then I should see the permissions-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] .cruds</td>
+	<td></td>
+</tr>
+<!--And the user should be allowed to reshare-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] .cruds input[name=&quot;share&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the can edit checkbox-->
+<tr>
+	<td>click</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] input.permissions[name=&quot;edit&quot;]</td>
+	<td></td>
+</tr>
+<!--Then the user should be allowed to edit-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] .cruds input[name=&quot;update&quot;]</td>
+	<td></td>
+</tr>
+<!--Meaning that the user should be allowed to update-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] .cruds input[name=&quot;update&quot;]</td>
+	<td></td>
+</tr>
+<!--And the user should be allowed to delete-->
+<tr>
+	<td>assertChecked</td>
+	<td>css=#dropdown #shareWithList li[data-share-with=&quot;${sharing_groupD}&quot;] .cruds input[name=&quot;delete&quot;]</td>
+	<td></td>
+</tr>
+<!--When I click the share action-->
+<tr>
+	<td>click</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions a[data-action=&quot;Share&quot;]</td>
+	<td></td>
+</tr>
+<!--Then I should no longer see the share dropdown-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#dropdown #shareWith</td>
+	<td></td>
+</tr>
+<!--And I should see the shared icon-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions .permanent img[src*=&quot;actions/shared&quot;]</td>
+	<td></td>
+</tr>
+<!--When I refresh the page-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--Then I should still see the shared icon-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#fileList tr[data-file=&quot;sharing file1.txt&quot;] .fileactions .permanent img[src*=&quot;actions/shared&quot;]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
