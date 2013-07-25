@@ -17,14 +17,29 @@ Current status
 
 Already implemented:
 
-- logout
-- login failure warning
-- login with admin user
-- create test user with cryptic password
-- check and close welcome dialog
-- file upload
-- multiple file upload
-- file upload autorename
+- [X] logout
+- [X] login failure warning
+- [X] login with admin user
+- [X] create test user with cryptic password
+- [X] check and close welcome dialog
+- [X] file upload
+- [X] multiple file upload
+- [X] file upload autorename
+- [X] file rename
+- [X] sharing file with groups
+  - [ ] check read only permission
+  - [ ] check read & write permission
+  - [ ] check read, write and reshare permission
+- [ ] sharing folder with groups
+  - [ ] check read only permission
+  - [ ] check read & write permission
+  - [ ] check read, write and reshare permission
+- [ ] sharing file with public link
+  - [ ] check read only permission
+- [ ] sharing file with public link
+  - [ ] check read only permission
+  - [ ] check read & write permission
+...
 
 Next steps
 ----------
