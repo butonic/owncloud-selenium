@@ -12,6 +12,51 @@ Configuration
 
 The ownCloud test suite is saved in owncloud.html. Open it in  the selenium IDE and select the setup test case. The tests need to upload several files from the official owncloud demo/test data, so replace `/replace/with/path/to/demodata/folder` with the path to a checked out version of https://github.com/owncloud/test-data
 
+Smoke Test with ownCloud7 Server
+--------------------------------
+
+This example logs in the admin user through a simple Selenium test case.
+It may fail in various ways, see below for some possible outcomes and how to fix them.
+
+  git clone git@github.com:owncloud/core.git
+  sudo rm -f core/config/config.php
+
+* ... and get apache up with master ... if not already running.
+* Create the admin user with password admin 
+* Finish setup with SQLite
+
+  git clone https://github.com/butonic/owncloud-selenium.git
+  git clone git@github.com:owncloud/test-data.git
+  firefox http://docs.seleniumhq.org/download/
+  firefox https://addons.mozilla.org/en-US/firefox/addon/stored-variables-viewer-seleni/
+  firefox
+   -> Tools -> Selenium IDE
+     Base URL: http://localhost/core/
+   File -> Open... -> owncloud-selenium/owncloud.html
+   (click) Setup (in Test Case in left pane)
+   (click) dataFolder (in column Value in right pane)
+    -> Target: /home/testy/oc/github/test-data/
+   File -> Save Test Case (this will overwrite Setup.html)
+   (double click) Setup (in left pane 'Test Case')
+   Stored-Vars -> Refresh	(just to verify the vars are there)
+     (Find in Page) admin
+   (double click) Login Admin success
+   Actions -> Play current test case
+
+* [error] Element css=#body-login not found
+
+  then the webpage http://localhost/core/index.php?logout=true probably displays
+
+   {"data":{"message":"Token expired. Please reload page."},"status":"error"}
+
+  Log out using the drop down at the right hand side from your user name. 
+  then play the test case again.
+  The url parameter ?logout=true does not work without a requesttoken. TBD
+
+* Success: User admin is now logged in and you see the Files app.
+
+
+
 Current status
 --------------
 
